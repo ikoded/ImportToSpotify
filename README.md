@@ -1,2 +1,3 @@
-# ImportToSpotify
-Aggregates data from various sources to build playlists for Spotify
+# Import to Spotify Playlist
+
+Α Python automation project that scrapes Discogs for tracks to make into a Spotify playlist.
