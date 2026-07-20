@@ -1,6 +1,9 @@
 # Import to Spotify Playlist
 
-Α Python automation project that scrapes Discogs for tracks to make into a Spotify playlist.
+> [!IMPORTANT]
+> Spotify now requires the callback URI's use HTTPS, here is a good one that still works `https://example.com/callback`
+
+Α Python automation project that uses various sources for tracks to make into a Spotify playlist. WIP that will have different sources to pull from, starting with prelinked Wikipedia pages (prelinked because each page is different).
 
 ## Installing Requirements
 

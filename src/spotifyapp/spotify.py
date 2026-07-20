@@ -12,8 +12,8 @@ class Spotify:
 
     # Searches for song URIs on Spotify using fuzzy matching when needed
     @staticmethod
-    def search_spotify_uris(sp: spotipy.Spotify, song_names: dict[str,str]) -> list:
-        global notfound
+    def search_spotify_uris(sp: spotipy.Spotify, song_names: dict[str,str], debug) -> dict:
+        notfound = []
         uris = []
 
         for song in song_names: # map format is {"title":"artist",...}
@@ -51,8 +51,10 @@ class Spotify:
 
             except Exception as e:
                 print(f"Error with {song}: {e}")
+        
+        print(f"\nSongs Extracted: {len(song_names)-len(notfound)} / {len(song_names)}\n")
 
-        return uris
+        return notfound, uris
 
     # Creates a new private Spotify playlist and adds the found songs
     @staticmethod

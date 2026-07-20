@@ -2,3 +2,4 @@ beautifulsoup4
 requests
 spotipy
 rapidfuzz
+wikipedia-api
