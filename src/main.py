@@ -20,9 +20,9 @@ def menu():
     counter = 1
     print("Please choose an option")
     for name in wikipediaurls.keys():
-        print(f"{counter}. {name}({wikipediaurls[name]})")
+        print(f"{counter}. {name}({wikipediaurls[name]}YEAR)")
         counter+=1
-    choice = input("Choice:")
+    choice = input("Choice: ")
 
     return choice
 
