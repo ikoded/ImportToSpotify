@@ -49,8 +49,7 @@ def choose_option(choice):
             start_time = timer()
             page = wikipedia.Wikipedia.grab_table_result(wikipediaurls["Billboard Top 100 By Year"] + year) # add year to url and grab it
 
-            print(page)
-            exit(0)
+            parsedpage = wikipedia.Wikipedia.parse_billboard_hot_100_by_year(page)
         case _:
             print("Unknown choice")
 

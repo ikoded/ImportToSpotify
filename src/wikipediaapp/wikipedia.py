@@ -26,3 +26,14 @@ class Wikipedia:
             results[cleanname] = cells[2]
 
         return results
+
+    @staticmethod
+    def parse_billboard_hot_100_by_year(table):
+        results = {}
+        for row in table.find_all('tr'):
+            cells = [cell.text.strip() for cell in row.find_all(['td', 'th'])]
+            songname = cells[1]
+            cleanname = songname.strip('"\'')
+            results[cleanname] = cells[2]
+
+        return results
