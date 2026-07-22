@@ -24,7 +24,7 @@ class Wikipedia:
         results = {}
         for row in table.find_all('tr'):
             cells = [cell.text.strip() for cell in row.find_all(['td', 'th'])]
-            if(len(cells) < 4 or cells[2] == 'Artist(s)'): # do not have to but remove field name cell
+            if(len(cells) < 4 or cells[2] == 'Artist(s)'): # do not have to but remove field name cell 
                 continue
             songname = cells[3] # Example it looks like: ['1145', '', 'Hudson Westbrook', 'House Again']
             cleanname = songname.strip('"\' ♪[]0123456789')
@@ -43,7 +43,8 @@ class Wikipedia:
         pastrow = None
         for row in table.find_all('tr'):
             cells = [cell.text.strip() for cell in row.find_all(['td', 'th'])]
-            
+            if(cells[1]=="Title"): # Get rid of the table column headers
+                continue
             songname = cells[1] # Example it looks like: ['95', '"House Again"', 'Hudson Westbrook']
             cleanname = songname.strip('"\'')
             try:
@@ -51,6 +52,6 @@ class Wikipedia:
             except:
                 results[cleanname] = pastrow[2] # grab from pastrow because artist can be 2 songs in a row on table (ie 2024 url)
 
-            pastrow = cells # save in case artist is two rows in one
+            pastrow = cells # save in case artist is two columns in one
 
         return results
